@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo apt install software-properties-common
 
 set -e
 
@@ -55,8 +56,9 @@ asknl "2]Cinnamon"
 asknl "3]Gnome"
 asknl "4]Gnome Classic"
 asknl "5]KDE Plasma"
+asknl "6]Pantheon"
 output "New GUIs  will come soon"
-ask "Select GUI (1-5): "
+ask "Select GUI (1-6): "
 read -r gui
 if [[ "$gui" == 1 ]]; then
 xfce4_install
@@ -68,6 +70,8 @@ elif [[ "$gui" == 4 ]]; then
 gnomeclassic_install
 elif [[ "$gui" == 5 ]]; then
 kdeplasma_install
+elif [[ "$gui" == 6 ]]; then
+Pantheon_install
 else
 output "Use Valid Input (1-5)!"
 exit 1
@@ -101,6 +105,10 @@ kdeplasma_install() {
 sudo DEBIAN_FRONTEND=noninteractive \
     apt install --no-install-recommends --assume-yes  kde-standard
 auth
+Pantheon_install(){
+sudo add-apt-repository ppa:elementary-os/stable
+sudo apt update
+sudo apt-get install elementary-desktop
 }
 auth() {
 output "GUI Installed"
