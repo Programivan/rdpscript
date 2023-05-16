@@ -110,6 +110,7 @@ sudo add-apt-repository ppa:elementary-os/stable
 sudo apt update
 sudo apt-get install elementary-desktop
 }
+}
 auth() {
 output "GUI Installed"
 output "Please go to https://remotedesktop.google.com/headless and click Begin -> Next -> Authorize -> Copy code for Debian Linux"
